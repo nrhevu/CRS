@@ -51,3 +51,47 @@ def wer(reference, candidate, transforms=transforms):
             )
     
     return wer
+
+def cer(reference, candidate, transforms=transforms):
+    """
+    Calculate the Char Error Rate (CER) between two sequences of words.
+
+    Args:
+        reference (List[str]): The reference sequence of words.
+        candidate (List[str]): The candidate sequence of words.
+        transforms (jiwer.Compose, optional): The sequence of transformations to apply to the reference and candidate sequences. Defaults to the default sequence of transformations defined in the module.
+
+    Returns:
+        float: The WER score between the reference and candidate sequences.
+
+    """
+    cer = jiwer.cer(
+                reference,
+                candidate,
+                truth_transform=transforms,
+                hypothesis_transform=transforms,
+            )
+    
+    return cer
+
+def mer(reference, candidate, transforms=transforms):
+    """
+    Calculate the Match Error Rate (MER) between two sequences of words.
+
+    Args:
+        reference (List[str]): The reference sequence of words.
+        candidate (List[str]): The candidate sequence of words.
+        transforms (jiwer.Compose, optional): The sequence of transformations to apply to the reference and candidate sequences. Defaults to the default sequence of transformations defined in the module.
+
+    Returns:
+        float: The WER score between the reference and candidate sequences.
+
+    """
+    mer = jiwer.mer(
+                reference,
+                candidate,
+                truth_transform=transforms,
+                hypothesis_transform=transforms,
+            )
+    
+    return mer
